@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Privacy Policy</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg,#000,#012b2b);
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+/* CARD */
+.policy-box {
+  width: 420px;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(0,255,200,0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(0,255,200,0.3);
+}
+
+/* TITLE */
+.policy-box h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* SCROLL AREA */
+#content {
+  height: 220px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* ITEMS */
+.section {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.section i {
+  color: #00e6d0;
+  margin-top: 3px;
+}
+
+/* BUTTON */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg,#00e6d0,#00bfa5);
+  color: black;
+  font-weight: bold;
+  margin-top: 15px;
+  opacity: 0.4;
+  transition: 0.3s;
+}
+
+.btn.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+#acceptBtn {
+  background: #00ffb7 ;
+}
+</style>
+</head>
+
+<body>
+
+<div class="policy-box">
+
+  <h2><i class="fa-solid fa-shield"></i> Privacy Policy</h2>
+
+  <div id="content">
+
+    <div class="section">
+      <i class="fa-solid fa-file"></i>
+      <span>CV Data: Your resume is used only for analysis.</span>
+    </div>
+
+    <div class="section">
+      <i class="fa-solid fa-user"></i>
+      <span>Account Info: Name & email stored securely.</span>
+    </div>
+
+    <div class="section">
+      <i class="fa-solid fa-chart-line"></i>
+      <span>Usage Data: Anonymous analytics collected.</span>
+    </div>
+
+    <div class="section">
+      <i class="fa-solid fa-lock"></i>
+      <span>Security: Data is encrypted.</span>
+    </div>
+
+    <div class="section">
+      <i class="fa-solid fa-trash"></i>
+      <span>Delete account anytime.</span>
+    </div>
+
+    <!-- extra scroll -->
+    <div class="section"><span>Scroll to bottom to continue...</span></div>
+    <div class="section"><span>Almost done...</span></div>
+    <div class="section"><span>Done 👍</span></div>
+
+  </div>
+
+  <button id="acceptBtn"  class="btn">I Understand</button>
+
+</div>
+
+<script>
+
+
+  const btn = document.getElementById("acceptBtn");
+
+ 
+
+  btn.addEventListener("click", () => {
+    window.location.href = "project.html";
+  });
+
+
+</script>
+
+</body>
+</html>

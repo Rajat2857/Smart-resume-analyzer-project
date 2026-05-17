@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #2ec4b6, #8e44ad);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 420px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.card {
+    text-align: center;
+}
+
+.card i {
+    font-size: 40px;
+    color: #2ec4b6;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.input-group i {
+    margin-right: 8px;
+    color: #2ec4b6;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+}
+
+.input-group textarea {
+    height: 100px;
+    resize: none;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 25px;
+    background: #2ec4b6;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #26a69a;
+}
+
+.footer-text {
+    font-size: 12px;
+    color: gray;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+#successMsg{
+    display:none;
+    color:#22c55e;
+    margin-top:12px;
+    font-weight:600;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header"><a href="project.html" style="color: #2ec4b6;"><i class="fa-solid fa-arrow-left"></i></a> Contact Us</div>
+
+    <div class="card" >
+        <i class="fa-solid fa-circle-question"></i>
+        <h2>Get in Touch</h2>
+        <p>We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+
+        <!-- FORM START -->
+        <form id="contactForm">
+
+            <div class="input-group">
+                <label><i class="fa-regular fa-user"></i> Name *</label>
+                <input type="text" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="input-group">
+                <label><i class="fa-regular fa-envelope"></i> Email *</label>
+                <input type="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="input-group">
+                <label><i class="fa-solid fa-phone"></i> Phone</label>
+                <input type="number" name="phone" placeholder="Enter your phone number (optional)">
+            </div>
+
+            <div class="input-group">
+                <label><i class="fa-regular fa-message"></i> Message *</label>
+                <textarea name="message" placeholder="Type your message here..." required></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+            <p id="successMsg">Message submitted successfully ✅</p>
+
+        </form>
+        <!-- FORM END -->
+
+        <div class="footer-text">
+            Your information will be handled as detailed in our Privacy Policy.
+        </div>
+
+    </div>
+</div>
+
+<script>
+const contactForm = document.getElementById("contactForm");
+const successMsg = document.getElementById("successMsg");
+
+contactForm.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    successMsg.style.display = "block";
+    contactForm.reset();
+
+    setTimeout(() => {
+        window.location.href = "project.html";
+    }, 1500);
+});
+</script>
+
+</body>
+</html>

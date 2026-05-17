@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Resume Analyzer</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <input type="checkbox" id="menu-toggle">
+
+  <label for="menu-toggle" class="menu-icon">
+    ☰
+  </label>
+
+  <div class="sidebar">
+    <h2>Menu</h2>
+
+    <div class="sidebar-top">
+      <a href="history.html"><i class="fa-solid fa-clock"></i> History</a>
+      <a href="contact.html">
+        <i class="fa-solid fa-phone"></i> Contact Us
+      </a>
+      <a href="privacy.html">
+        <i class="fa-solid fa-shield-halved"></i> Privacy Policy
+      </a>
+    </div>
+
+    <div class="sidebar-bottom">
+      <a href="profile.html">
+       <i class="fa-solid fa-user"></i> Profile
+      </a>
+    </div>
+  </div>
+
+  
+
+
+  <div id="uploadSection" class="container">
+
+    <h1 class="title">AI Resume Analyzer</h1>
+    <p class="subtitle">
+      Upload your resume and get an instant ATS compatibility score
+    </p>
+
+    <div class="upload-box">
+      <input type="file" id="resumeFile" hidden>
+      <label for="resumeFile" class="upload-btn">
+        📄 Upload Resume
+      </label>
+      <p class="file-name" id="fileName">No file selected</p>
+    </div>
+
+    <h2 class="heading">What You'll Get</h2>
+
+    <div class="card">
+      <div class="icon check">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+
+      <div class="text">
+        <h3>ATS Score</h3>
+        <p>Get a detailed compatibility score showing how well your CV passes ATS systems</p>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon graph">
+        <i class="fa-solid fa-chart-line"></i>
+      </div>
+      <div class="text">
+        <h3>Skill Analysis</h3>
+        <p>Match your skills with industry job requirements and identify gaps</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon bulb">
+        <i class="fa-regular fa-lightbulb"></i>
+      </div>
+      <div class="text">
+        <h3>Improvements</h3>
+        <p>Get actionable suggestions to optimize your resume for better matches</p>
+      </div>
+    </div>
+
+    <div class="how">
+      <h2>How It Works</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="circle">1</div>
+          <h3>Upload Resume</h3>
+          <p>Submit your PDF file</p>
+        </div>
+
+        <div class="step">
+          <div class="circle">2</div>
+          <h3>AI Analysis</h3>
+          <p>Get instant insights</p>
+        </div>
+
+        <div class="step">
+          <div class="circle">3</div>
+          <h3>Optimize</h3>
+          <p>Improve your resume</p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+  
+
+  <!-- UPLOADING SECTION -->
+
+  
+  <div id="resultSection" class="result-page" style="display:none;">
+
+    <div class="result-card">
+
+      <div class="cloud-icon">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+      </div>
+
+      <div class="ready-badge">
+        <i class="fa-solid fa-circle-check"></i>
+        File Ready
+      </div>
+
+      <div class="file-display">
+        <i class="fa-solid fa-file-pdf"></i>
+        <span id="resultFileName">resume.pdf</span>
+      </div>
+
+      <div class="button-row">
+
+        <input type="file" id="changeFileInput" hidden>
+
+        <label for="changeFileInput" class="change-btn">
+          <i class="fa-solid fa-file-arrow-up"></i>
+          Change File
+        </label>
+
+        <button id="clearBtn" class="clear-btn">
+          <i class="fa-solid fa-xmark"></i>
+          Clear
+        </button>
+
+      </div>
+
+    </div>
+
+    <button id="analyzeBtnSecond" class="big-analyze-btn">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      Analyze Resume
+    </button>
+
+  </div>
+
+
+  <!-- LOADING SECTION -->
+  <div id="loadingSection" class="loading-container" style="display:none;">
+    <div class="loader"></div>
+    <h2>Analyzing your resume</h2>
+    <p>This may take a few seconds</p>
+  </div>
+
+
+
+  <!--  PAGE 4 : FINAL RESULT -->
+  <div id="finalResultSection" class="container" style="display:none;">
+    <button id="downloadBtn" class="download-btn">
+      📥 Download Report
+    </button>
+    <div class="result-header">
+      <h2>Your ATS Score</h2>
+    </div>
+
+    <div class="score-circle">
+      <span id="score">--</span>
+    </div>
+
+    <div class="extra-analysis">
+
+      <!-- DOMAIN -->
+      <div class="analysis-card">
+        <h3>🎯 Detected Domain</h3>
+        <p id="domainName">--</p>
+      </div>
+
+      <!-- LEVEL -->
+      <div class="analysis-card">
+        <h3>📊 Resume Level</h3>
+        <p id="resumeLevel">--</p>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="analysis-card full">
+        <h3>📝 Summary</h3>
+        <p id="summaryText">--</p>
+      </div>
+
+
+    </div>
+    <!-- METRICS -->
+    <div class="metrics-card">
+
+      <div class="metric-item">
+        <span>Skills Match</span>
+        <span id="skillsPercent">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="fill skills-fill" id="skillsProgress"></div>
+      </div>
+
+      <div class="metric-item">
+        <span>Experience</span>
+        <span id="experiencePercent">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="fill exp-fill" id="experienceProgress"></div>
+      </div>
+
+      <div class="metric-item">
+        <span>Projects</span>
+        <span id="projectsPercent">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="fill project-fill" id="projectsProgress"></div>
+      </div>
+
+    </div>
+
+    <!-- FEEDBACK -->
+    <div class="feedback-grid">
+      <div class="feedback-card strengths-card">
+        <h3>✅ Top Strengths</h3>
+        <ul id="strengthsList"></ul>
+      </div>
+
+      <div class="feedback-card improvements-card">
+        <h3>⚡ Main Improvements</h3>
+        <ul id="suggestions"></ul>
+      </div>
+    </div>
+
+    <button id="goBackBtn" class="analyze-btn">
+      Analyze Another Resume
+    </button>
+
+  </div>
+
+
+  </div>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="../js/project.js"></script>
+</body>
+
+</html>

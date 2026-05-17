@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+
+  <style>
+    .login-body {
+      background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      padding:20px;
+    }
+
+    .login-container {
+      background: rgba(255,255,255,0.08);
+      padding:30px;
+      border-radius:20px;
+      width:90%;
+      max-width:400px;
+      text-align:center;
+      backdrop-filter: blur(10px);
+    }
+
+    .input-group {
+      display:flex;
+      align-items:center;
+      margin-bottom:15px;
+    }
+
+    .input-group label {
+      width:90px;
+      font-size:14px;
+      color:white;
+    }
+
+    .input-group input {
+      width:100%;
+      padding:10px;
+      border-radius:10px;
+      border:none;
+    }
+
+    .login-btn {
+      width:100%;
+      padding:12px;
+      background:#00c6ff;
+      border:none;
+      color:#000;
+      font-weight:bold;
+      cursor:pointer;
+      border-radius:10px;
+      margin-top:10px;
+    }
+
+    h1 {
+      color:white;
+      margin-bottom:10px;
+    }
+
+    p {
+      color:white;
+      margin-bottom:20px;
+    }
+
+    a {
+      color:#00c6ff;
+      text-decoration:none;
+    }
+  </style>
+</head>
+
+<body class="login-body">
+<form id="signupForm">
+  <div class="login-container">
+
+    <h1>Create Account ✨</h1>
+    <p>Sign up to start Resume Analysis</p>
+
+    <div class="input-group">
+      <label>Name:</label>
+      <input type="text" id="signupName" placeholder="Your Name" required>
+    </div>
+
+    <div class="input-group">
+      <label>Email:</label>
+      <input type="email" id="signupEmail" placeholder="user@gmail.com" required>
+    </div>
+
+    <div class="input-group">
+      <label>Password:</label>
+      <input type="password" id="signupPassword" placeholder="Create Password" required>
+    </div>
+
+    <button type="submit" class="login-btn">Sign Up</button>
+
+    <p style="margin-top:15px;">
+      Already have an account?
+      <a href="login.html">Login</a>
+    </p>
+
+  </div>
+</form>
+
+<script src="../js/auth.js"></script>
+</body>
+</html>
